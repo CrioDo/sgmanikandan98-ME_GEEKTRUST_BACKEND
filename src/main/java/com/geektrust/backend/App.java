@@ -12,13 +12,7 @@ public class App {
 
 	public static void main(String[] args) {	
 		List<String> commandLineArgs=new LinkedList<>(Arrays.asList(args));
-        String expectedSequenece="INPUT_FILE";
-		String actualSequence=commandLineArgs.stream()
-		                       .map(a->a.split("=")[0])
-							   .collect(Collectors.joining("$"));
-		if(expectedSequenece.equals(actualSequence)){
            run(commandLineArgs);
-		}
 
 	}
 
@@ -26,8 +20,7 @@ public class App {
 		appConfig applicatiConfig=new appConfig();
 		CommandInvoker commadnInvoker=applicatiConfig.getCommandInvoker();
 		BufferedReader reader;
-		String inputFile=commandLineArgs.get(0).split("=")[1];
-		commandLineArgs.remove(0);
+		String inputFile=commandLineArgs.get(0);
 
 		try{
 			reader=new BufferedReader(new FileReader(inputFile));

@@ -1,6 +1,18 @@
 package com.geektrust.backend.Command;
 import java.util.*;
 import com.geektrust.backend.Exception.NosuchCommandException;
+import com.geektrust.backend.Repository.CategoryRepository;
+import com.geektrust.backend.Repository.ICategoryRepository;
+import com.geektrust.backend.Repository.ISubscriptionRepository;
+import com.geektrust.backend.Repository.ITopupRepository;
+import com.geektrust.backend.Repository.SubscriptionRepository;
+import com.geektrust.backend.Repository.TopupRepository;
+import com.geektrust.backend.Service.CategoryService;
+import com.geektrust.backend.Service.ICategoryService;
+import com.geektrust.backend.Service.ISubscriptionService;
+import com.geektrust.backend.Service.ITopUpService;
+import com.geektrust.backend.Service.SubscriptionService;
+import com.geektrust.backend.Service.TopUpService;
 
 public class CommandInvoker {
 
@@ -23,32 +35,31 @@ public class CommandInvoker {
 
     }
 
-    // public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    //     CommandInvoker obj=new CommandInvoker();
+        CommandInvoker obj=new CommandInvoker();
 
-       // ICategoryRepository catrepo=new CategoryRepository();
-      //  ISubscriptionRepository subrepo=new SubscriptionRepository();
-    //     ITopupRepository toprepo=new TopupRepository();
+     ICategoryRepository catrepo=new CategoryRepository();
+       ISubscriptionRepository subrepo=new SubscriptionRepository();
+       ITopupRepository toprepo=new TopupRepository();
 
-    //     //ITopUpService service=new TopUpService(catrepo, subrepo, toprepo);
-    //     ISubscriptionService subservice=new SubscriptionService(subrepo);
-    //     ICategoryService service=new CategoryService(catrepo, subrepo);
+         ITopUpService service=new TopUpService(catrepo, subrepo, toprepo);
+        ISubscriptionService subservice=new SubscriptionService(subrepo);
+        ICategoryService catservice=new CategoryService(catrepo, subrepo);
 
-    //     //ICommand command=new AddTopUpCommand(service);
-    //     ICommand command=new StartSubscriptionCommand(subservice);
-    //     command=new AddSubscriptionCommand(service);
+         //ICommand command=new AddTopUpCommand(service);
+         ICommand command=new StartSubscriptionCommand(subservice);
+         
 
 
+        obj.register("START_SUBSCRIPTION", command);
+        List<String> token=Arrays.asList("START_SUBSCRIPTION","20-02-2022");
+        obj.executeCommand("START_SUBSCRIPTION",token );
 
-    //     obj.register("START_SUBSCRIPTION", command);
-    //     List<String> token=Arrays.asList("START_SUBSCRIPTION","20-02-2022");
-
-    //     obj.register("ADD_SUBSCRIPTION", command);
-    //     List<String> token1=Arrays.asList("ADD_SUBSCRIPTION","MUSIC","PERSONAL");
-
-    //     obj.executeCommand("START_SUBSCRIPTION",token );
-    //     obj.executeCommand("ADD_SUBSCRIPTION",token1);
-    // }
+        command=new AddSubscriptionCommand(catservice);
+        obj.register("ADD_SUBSCRIPTION", command);
+        List<String> token1=Arrays.asList("ADD_SUBSCRIPTION","MUSIC","PERSONAL");
+        obj.executeCommand("ADD_SUBSCRIPTION",token1);
+     }
     
 }
