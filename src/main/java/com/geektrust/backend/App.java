@@ -30,7 +30,6 @@ public class App {
 			while(line!=null){
 
 				List<String>tokens=Arrays.asList(line.split(" "));
-				System.out.println(tokens);
 				commadnInvoker.executeCommand(tokens.get(0), tokens);
 				line=reader.readLine();
 			}

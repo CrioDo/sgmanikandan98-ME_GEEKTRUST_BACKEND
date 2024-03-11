@@ -35,7 +35,7 @@ public class CommandInvoker {
 
     }
 
-    public static void main(String[] args) {
+  /*  public static void main(String[] args) {
 
         CommandInvoker obj=new CommandInvoker();
 
@@ -76,6 +76,6 @@ public class CommandInvoker {
         obj.register("PRINT_RENEWAL_DETAILS", command);
         List<String> token3=Arrays.asList("PRINT_RENEWAL_DETAILS");
         obj.executeCommand("PRINT_RENEWAL_DETAILS",token3);
-     }
+     }*/ 
     
 }
