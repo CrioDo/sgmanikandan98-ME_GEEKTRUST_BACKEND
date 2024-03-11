@@ -18,19 +18,13 @@ public class PrintRenewDetailsCommand implements ICommand{
 
             if(token.size()==1){
                 long ans=service.renewalAmount();
-                System.out.println("RENEWAL AMOUNT "+ans);
+                System.out.println("RENEWAL_AMOUNT "+ans);
             }
 
         }
         catch(SubscriptionNotFoundException e){
             System.out.println(e.getMessage());
-        }
-
-        catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-      
-        
+        } 
     }
     
 }

@@ -36,10 +36,6 @@ public class AddSubscriptionCommand implements ICommand{
         catch(DuplicateCategoryException f){
             System.out.println(f.getMessage());
         }
-        catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-       
         
     }
     
