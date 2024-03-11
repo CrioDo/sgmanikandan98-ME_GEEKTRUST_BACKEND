@@ -40,7 +40,7 @@ public class categoryPlanAmountCalculator {
 
         }
 
-        return 0;
+        return constant.CONSTANT_ZERO;
     }
 
 

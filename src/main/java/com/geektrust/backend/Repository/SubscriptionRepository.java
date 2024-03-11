@@ -2,6 +2,7 @@ package com.geektrust.backend.Repository;
 
 import java.time.LocalDate;
 import java.util.*;
+import com.geektrust.backend.Utility.constant;
 import com.geektrust.backend.entities.Subscription;
 
 
@@ -18,7 +19,7 @@ public class SubscriptionRepository implements ISubscriptionRepository{
     
     @Override
     public boolean isSubscriptionAvailable() {
-        if(subsMap.size()==0){
+        if(subsMap.size()==constant.CONSTANT_ZERO){
         return false;
         }
         return true;

@@ -57,7 +57,7 @@ public class CategoryRepository  implements ICategoryRepository{
 
     @Override
     public boolean isSubscriptionAvailable() {
-        if(catsMap.size()>0){
+        if(catsMap.size()>constant.CONSTANT_ZERO){
             return true;
         }
         return false;

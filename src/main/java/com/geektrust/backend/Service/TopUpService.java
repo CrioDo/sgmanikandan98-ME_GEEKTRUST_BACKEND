@@ -7,12 +7,8 @@ import com.geektrust.backend.Repository.ICategoryRepository;
 import com.geektrust.backend.Repository.ISubscriptionRepository;
 import com.geektrust.backend.Repository.ITopupRepository;
 import com.geektrust.backend.Utility.DeviceCalculator;
-import com.geektrust.backend.Utility.TopUpAmountCalculator;
-import com.geektrust.backend.Utility.categoryPlanAmountCalculator;
 import com.geektrust.backend.Utility.constant;
-import com.geektrust.backend.entities.Category;
-import com.geektrust.backend.entities.Topup;
-import java.util.*;
+
 
 public class TopUpService implements ITopUpService {
 
@@ -30,12 +26,12 @@ public class TopUpService implements ITopUpService {
     @Override
     public void addTopUp(String noOfDevice, int noOfMonths) {
 
-        if(noOfDevice==null || noOfMonths<0 ){
+        if(noOfDevice==null || noOfMonths<constant.CONSTANT_ZERO ){
             throw new InvalidInputException("INVALID_DATA");
         }
 
         if(!subrepo.isSubscriptionAvailable()){
-           throw new SubscriptionNotFoundException("ADD_TOPUP_FAILED SUBSCRIPTION_NOT_FOUND");
+           throw new SubscriptionNotFoundException("ADD_TOPUP_FAILED INVALID_DATE");
         }
 
         if(!catrepo.isSubscriptionAvailable()){

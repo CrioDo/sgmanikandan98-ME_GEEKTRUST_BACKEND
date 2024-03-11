@@ -6,6 +6,7 @@ import java.util.*;
 import com.geektrust.backend.AppConfiguration.appConfig;
 import com.geektrust.backend.Command.CommandInvoker;
 import com.geektrust.backend.Exception.NosuchCommandException;
+import com.geektrust.backend.Utility.constant;
 
 public class App {
 
@@ -20,7 +21,7 @@ public class App {
 		appConfig applicatiConfig=new appConfig();
 		CommandInvoker commadnInvoker=applicatiConfig.getCommandInvoker();
 		BufferedReader reader;
-		String inputFile=commandLineArgs.get(0);
+		String inputFile=commandLineArgs.get(constant.CONSTANT_ZERO);
 
 		try{
 			reader=new BufferedReader(new FileReader(inputFile));
@@ -29,7 +30,7 @@ public class App {
 			while(line!=null){
 
 				List<String>tokens=Arrays.asList(line.split(" "));
-				commadnInvoker.executeCommand(tokens.get(0), tokens);
+				commadnInvoker.executeCommand(tokens.get(constant.TOKEN_ZERO), tokens);
 				line=reader.readLine();
 			}
 			reader.close();
