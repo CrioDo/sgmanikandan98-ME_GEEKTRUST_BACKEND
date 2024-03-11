@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import com.geektrust.backend.Exception.InvalidDateException;
 import com.geektrust.backend.Repository.ISubscriptionRepository;
 import com.geektrust.backend.Utility.DateValidator;
+import com.geektrust.backend.Utility.constant;
 
 public class SubscriptionService implements ISubscriptionService{
 
@@ -18,7 +19,7 @@ public class SubscriptionService implements ISubscriptionService{
     public void startSubscribe(String date) {
         boolean res=DateValidator.isvalidDate(date);
         if(res){
-            DateTimeFormatter sdf=DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            DateTimeFormatter sdf=DateTimeFormatter.ofPattern(constant.DATE_PATTERN);
             LocalDate temp=LocalDate.parse(date,sdf);
             repo.startSubscription(temp);
         }

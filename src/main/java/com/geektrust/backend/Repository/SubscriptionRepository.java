@@ -12,9 +12,8 @@ public class SubscriptionRepository implements ISubscriptionRepository{
     public void startSubscription(LocalDate date) {
         if(date!=null){
          Subscription obj=new Subscription(date);
-          subsMap.put("startDate",obj);   
+          subsMap.put(date.toString(),obj);   
         }
-        System.out.println(subsMap.size());
     }
     
     @Override
@@ -28,8 +27,7 @@ public class SubscriptionRepository implements ISubscriptionRepository{
     @Override
     public LocalDate startDate() {
        if(!subsMap.isEmpty()){
-        return subsMap.get("startDate").getStartDate();
-
+        return subsMap.values().stream().findAny().get().getStartDate();
        }
       return null;
         

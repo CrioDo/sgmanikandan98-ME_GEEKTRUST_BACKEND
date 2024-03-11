@@ -9,9 +9,7 @@ class AppTest {
 
     @Test
     public void Application_Test() throws Exception{
-        // Arrange
-        // Act   
-        // Assert
+       
         Assertions.assertTrue(true);
     }
 

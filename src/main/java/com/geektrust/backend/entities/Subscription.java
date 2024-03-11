@@ -44,13 +44,6 @@ public class Subscription {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Subscription [startDate=" + startDate + "]";
-    }
-    
-     
-   
     
   
 }

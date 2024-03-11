@@ -1,5 +1,7 @@
 package com.geektrust.backend.Utility;
 
+import com.geektrust.backend.entities.Category;
+
 public class categoryPlanAmountCalculator {
     
 
@@ -7,37 +9,46 @@ public class categoryPlanAmountCalculator {
         if(category.equalsIgnoreCase("Music")){
             switch(plan){
                 case "FREE":
-                    return 0;
+                    return constant.MUSIC_FREE;
                 case "PERSONAL":
-                    return 100;
+                    return constant.MUSIC_PERSONAL;
                 case "PREMIUM":
-                    return 250;
+                    return constant.MUSIC_PREMIUM;
             }
         }
 
         else if(category.equalsIgnoreCase("video")){
             switch(plan){
                 case "FREE":
-                    return 0;
+                    return constant.VIDEO_FREE;
                 case "PERSONAL":
-                    return 200;
+                    return constant.VIDEO_PERSONAL;
                 case "PREMIUM":
-                    return 500;
+                    return constant.VIDEO_PREMIOUM;
             }
         }
 
         else if(category.equalsIgnoreCase("podcast")){
             switch(plan){
                 case "FREE":
-                    return 0;
+                    return constant.PODCAST_FREE;
                 case "PERSONAL":
-                    return 100;
+                    return constant.PODCAST_PERSONAL;
                 case "PREMIUM":
-                    return 300;
+                    return constant.PODCAST_PREMIUM;
             }
 
         }
 
         return 0;
+    }
+
+
+    public static long calculateTotalAmount(Category cat){
+        long ans=0;
+        if(cat!=null){
+            ans+=planAmount(cat.getPlanCategory(), cat.getPlanName());
+        }
+        return ans; 
     }
 }

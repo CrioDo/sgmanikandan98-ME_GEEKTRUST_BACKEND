@@ -39,19 +39,15 @@ public class CommandInvoker {
 
         CommandInvoker obj=new CommandInvoker();
 
-     ICategoryRepository catrepo=new CategoryRepository();
-       ISubscriptionRepository subrepo=new SubscriptionRepository();
-       ITopupRepository toprepo=new TopupRepository();
+        ICategoryRepository catrepo=new CategoryRepository();
+        ISubscriptionRepository subrepo=new SubscriptionRepository();
+        ITopupRepository toprepo=new TopupRepository();
 
-         ITopUpService service=new TopUpService(catrepo, subrepo, toprepo);
+        ITopUpService service=new TopUpService(catrepo, subrepo, toprepo);
         ISubscriptionService subservice=new SubscriptionService(subrepo);
         ICategoryService catservice=new CategoryService(catrepo, subrepo);
 
-         //ICommand command=new AddTopUpCommand(service);
-         ICommand command=new StartSubscriptionCommand(subservice);
-         
-
-
+        ICommand command=new StartSubscriptionCommand(subservice);
         obj.register("START_SUBSCRIPTION", command);
         List<String> token=Arrays.asList("START_SUBSCRIPTION","20-02-2022");
         obj.executeCommand("START_SUBSCRIPTION",token );
@@ -60,6 +56,26 @@ public class CommandInvoker {
         obj.register("ADD_SUBSCRIPTION", command);
         List<String> token1=Arrays.asList("ADD_SUBSCRIPTION","MUSIC","PERSONAL");
         obj.executeCommand("ADD_SUBSCRIPTION",token1);
+
+        command=new AddSubscriptionCommand(catservice);
+        obj.register("ADD_SUBSCRIPTION", command);
+         token1=Arrays.asList("ADD_SUBSCRIPTION","VIDEO","PREMIUM");
+        obj.executeCommand("ADD_SUBSCRIPTION",token1);
+
+        command=new AddSubscriptionCommand(catservice);
+        obj.register("ADD_SUBSCRIPTION", command);
+         token1=Arrays.asList("ADD_SUBSCRIPTION","PODCAST","FREE");
+        obj.executeCommand("ADD_SUBSCRIPTION",token1);
+
+        command=new AddTopUpCommand(service);
+        obj.register("ADD_TOPUP", command);
+        List<String> token2=Arrays.asList("ADD_TOPUP","FOUR_DEVICE","3");
+        obj.executeCommand("ADD_TOPUP",token2);
+
+        command=new PrintRenewDetailsCommand(service);
+        obj.register("PRINT_RENEWAL_DETAILS", command);
+        List<String> token3=Arrays.asList("PRINT_RENEWAL_DETAILS");
+        obj.executeCommand("PRINT_RENEWAL_DETAILS",token3);
      }
     
 }

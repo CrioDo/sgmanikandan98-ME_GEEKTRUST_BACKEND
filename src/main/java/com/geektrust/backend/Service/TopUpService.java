@@ -7,6 +7,11 @@ import com.geektrust.backend.Repository.ICategoryRepository;
 import com.geektrust.backend.Repository.ISubscriptionRepository;
 import com.geektrust.backend.Repository.ITopupRepository;
 import com.geektrust.backend.Utility.DeviceCalculator;
+import com.geektrust.backend.Utility.TopUpAmountCalculator;
+import com.geektrust.backend.Utility.categoryPlanAmountCalculator;
+import com.geektrust.backend.entities.Category;
+import com.geektrust.backend.entities.Topup;
+import java.util.*;
 
 public class TopUpService implements ITopUpService {
 
@@ -40,7 +45,6 @@ public class TopUpService implements ITopUpService {
             throw new DuplicateTopUpException("ADD_TOPUP_FAILED DUPLICATE_TOPUP");
         }
         int deviceNumber=DeviceCalculator.findDeviceCount(noOfDevice);
-
         if(deviceNumber>0 && deviceNumber<=10){
             toprepo.addTopUp(deviceNumber, noOfMonths);
         }
@@ -52,8 +56,23 @@ public class TopUpService implements ITopUpService {
 
     @Override
     public long renewalAmount() {
-       
-        return 0;
+
+        if(!subrepo.isSubscriptionAvailable()){
+            throw new SubscriptionNotFoundException("SUBSCRIPTION_NOT_FOUND");
+         }
+
+        List<Topup> tp=toprepo.findAll();
+        List<Category> ct=catrepo.findAll();
+        long amount=0;
+        for(Category a:ct){
+             amount+=categoryPlanAmountCalculator.calculateTotalAmount(a);
+        }
+        for(Topup a:tp){
+            amount+=TopUpAmountCalculator.calculateTotalAmount(a);
+        }
+        return amount;       
     }
+
+    
     
 }
