@@ -28,7 +28,7 @@ public class AddSubscriptionCommand implements ICommand{
                 throw new NosuchCommandException("INVALID_COMMAND");
             }
             
-            System.out.println("RENEWAL_REMAINDER "+ obj.getPlanName()+" "+obj.getRenewalDate());
+            System.out.println("RENEWAL_REMAINDER "+ obj.getPlanCategory()+" "+obj.getRenewalDate());
         }
         catch(SubscriptionNotFoundException e){
             System.out.println(e.getMessage());

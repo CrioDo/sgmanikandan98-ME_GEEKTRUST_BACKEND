@@ -1,8 +1,6 @@
 package com.geektrust.backend.entities;
 
 import java.time.LocalDate;
-
-
 public class Subscription {
 
     private LocalDate startDate;

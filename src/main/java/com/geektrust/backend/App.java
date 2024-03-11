@@ -25,7 +25,6 @@ public class App {
 
 		try{
 			reader=new BufferedReader(new FileReader(inputFile));
-			 System.out.println(inputFile);
 			String line=reader.readLine();
 
 			while(line!=null){

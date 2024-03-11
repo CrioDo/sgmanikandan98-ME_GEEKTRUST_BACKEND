@@ -9,6 +9,7 @@ import com.geektrust.backend.Repository.ITopupRepository;
 import com.geektrust.backend.Utility.DeviceCalculator;
 import com.geektrust.backend.Utility.TopUpAmountCalculator;
 import com.geektrust.backend.Utility.categoryPlanAmountCalculator;
+import com.geektrust.backend.Utility.constant;
 import com.geektrust.backend.entities.Category;
 import com.geektrust.backend.entities.Topup;
 import java.util.*;
@@ -45,7 +46,7 @@ public class TopUpService implements ITopUpService {
             throw new DuplicateTopUpException("ADD_TOPUP_FAILED DUPLICATE_TOPUP");
         }
         int deviceNumber=DeviceCalculator.findDeviceCount(noOfDevice);
-        if(deviceNumber>0 && deviceNumber<=10){
+        if(deviceNumber>0 && deviceNumber<=constant.UPTO_TEN_DEVICE){
             toprepo.addTopUp(deviceNumber, noOfMonths);
         }
         else{
