@@ -9,7 +9,7 @@ public interface ICategoryRepository {
     public Category save(String subcriptionCategory,String SubscriptionPlan);
     public boolean findByCategory(String Category);
     public boolean isSubscribed(String subscriptionCategory);
-    public String renewalDate(LocalDate date, String subscriptionPlan);
+    public LocalDate renewalDate(LocalDate date, String subscriptionPlan);
     public boolean isSubscriptionAvailable();
     public List<Category> findAll();
     

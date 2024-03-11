@@ -5,6 +5,7 @@ import com.geektrust.backend.Exception.DuplicateTopUpException;
 import com.geektrust.backend.Exception.NosuchCommandException;
 import com.geektrust.backend.Exception.SubscriptionNotFoundException;
 import com.geektrust.backend.Service.ITopUpService;
+import com.geektrust.backend.Utility.constant;
 
 public class AddTopUpCommand implements ICommand{
 
@@ -19,8 +20,8 @@ public class AddTopUpCommand implements ICommand{
     @Override
     public void execute(List<String> token) {
         try{
-        if(token.size()==3){
-         service.addTopUp(token.get(1),Integer.valueOf(token.get(2)));
+        if(token.size()==constant.TOKEN_SIZE_THREE){
+         service.addTopUp(token.get(constant.TOKEN_ONE),Integer.valueOf(token.get(constant.TOKEN_TWO)));
         }
         else{
             throw new NosuchCommandException("INVALID_COMMAND");

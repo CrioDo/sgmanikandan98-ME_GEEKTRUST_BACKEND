@@ -1,19 +1,21 @@
 package com.geektrust.backend.entities;
 
+import java.time.LocalDate;
 
 public class Category {
 
     private String planCategory;
     private String planName;
-    private String renewalDate;
-
-    public Category(String planCategory, String planName, String renewalDate) {
+    private LocalDate renewalDate;
+    
+    public Category(String planCategory, String planName, LocalDate renewalDate) {
         this.planCategory = planCategory;
         this.planName = planName;
         this.renewalDate = renewalDate;
     }
 
     
+
     public Category(String planCategory, String planName) {
         this.planCategory = planCategory;
         this.planName = planName;
@@ -37,12 +39,15 @@ public class Category {
         this.planName = planName;
     }
 
-    public String getRenewalDate() {
+    public LocalDate getRenewalDate() {
         return renewalDate;
     }
 
-    public void setRenewalDate(String renewalDate) {
+    public void setRenewalDate(LocalDate renewalDate) {
         this.renewalDate = renewalDate;
     }
+
+    
+
   
 }

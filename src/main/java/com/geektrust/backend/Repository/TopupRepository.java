@@ -2,6 +2,7 @@ package com.geektrust.backend.Repository;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import com.geektrust.backend.Utility.constant;
 import com.geektrust.backend.entities.Topup;
 
 public class TopupRepository implements ITopupRepository {
@@ -10,7 +11,7 @@ public class TopupRepository implements ITopupRepository {
 
     @Override
     public boolean isTopUpAvailable() {
-       if(topupMap.size()>0){
+       if(topupMap.size()>constant.CONSTANT_ZERO){
         return true;
        }
         return false;

@@ -9,7 +9,7 @@ public class DeviceCalculator {
        else if(noOfDevice.equals("TEN_DEVICE")){
           return constant.TEN_DEVICE;
        }
-       return 0;
+       return constant.CONSTANT_ZERO;
 
     }
 

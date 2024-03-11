@@ -55,24 +55,7 @@ public class TopUpService implements ITopUpService {
     
     }
 
-    @Override
-    public long renewalAmount() {
-
-        if(!subrepo.isSubscriptionAvailable()){
-            throw new SubscriptionNotFoundException("SUBSCRIPTION_NOT_FOUND");
-         }
-
-        List<Topup> tp=toprepo.findAll();
-        List<Category> ct=catrepo.findAll();
-        long amount=0;
-        for(Category a:ct){
-             amount+=categoryPlanAmountCalculator.calculateTotalAmount(a);
-        }
-        for(Topup a:tp){
-            amount+=TopUpAmountCalculator.calculateTotalAmount(a);
-        }
-        return amount;       
-    }
+  
 
     
     

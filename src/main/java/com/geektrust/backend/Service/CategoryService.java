@@ -40,7 +40,7 @@ public class CategoryService implements ICategoryService {
       
         Category obj=catrepo.save(subscriptionCategory, SubcriptionPlan);
         LocalDate date=subrepo.startDate();
-       String renewalDate=catrepo.renewalDate(date, SubcriptionPlan);
+        LocalDate renewalDate=catrepo.renewalDate(date, SubcriptionPlan);
         return new Category(obj.getPlanCategory(), obj.getPlanName(),renewalDate);
     }
 

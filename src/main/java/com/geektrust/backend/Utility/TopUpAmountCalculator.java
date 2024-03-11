@@ -5,11 +5,11 @@ import com.geektrust.backend.entities.Topup;
 public class TopUpAmountCalculator {
 
     public static long calculateAmount(int noOfDevice){
-        if(noOfDevice>0 && noOfDevice <=4){
+        if(noOfDevice>constant.ZERO_DEVICE && noOfDevice <=constant.FOUR_DEVICE){
             return constant.UPTO_FOUR_DEVICE;
         }
 
-        if(noOfDevice>4 && noOfDevice<=10){
+        if(noOfDevice>constant.FOUR_DEVICE && noOfDevice<=constant.TEN_DEVICE){
             return constant.UPTO_TEN_DEVICE;
         }
 
@@ -20,7 +20,7 @@ public class TopUpAmountCalculator {
     public static long calculateTotalAmount(Topup topup){
         long ans=0;
         if(topup!=null){
-           if(topup.getDevice()<=4){
+           if(topup.getDevice()<=constant.FOUR_DEVICE){
             ans+=constant.UPTO_FOUR_DEVICE*topup.getMonths();
            }
            else{

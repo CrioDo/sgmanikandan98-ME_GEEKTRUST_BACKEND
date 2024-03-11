@@ -13,8 +13,10 @@ import com.geektrust.backend.Repository.SubscriptionRepository;
 import com.geektrust.backend.Repository.TopupRepository;
 import com.geektrust.backend.Service.CategoryService;
 import com.geektrust.backend.Service.ICategoryService;
+import com.geektrust.backend.Service.IRenewDetailsService;
 import com.geektrust.backend.Service.ISubscriptionService;
 import com.geektrust.backend.Service.ITopUpService;
+import com.geektrust.backend.Service.RenewDetailsService;
 import com.geektrust.backend.Service.SubscriptionService;
 import com.geektrust.backend.Service.TopUpService;
 
@@ -27,11 +29,12 @@ public class appConfig {
     private final ISubscriptionService subscriptionService=new SubscriptionService(subscriptionRepository);
     private final ICategoryService categoryService=new CategoryService(categoryRepository,subscriptionRepository);
     private final ITopUpService topUpService=new TopUpService(categoryRepository, subscriptionRepository,topupRepository);
+    private final IRenewDetailsService renewDetailsService=new RenewDetailsService(subscriptionRepository, categoryRepository,topupRepository);
 
     private final StartSubscriptionCommand startSubscriptionCommand=new StartSubscriptionCommand(subscriptionService);
     private final AddSubscriptionCommand addSubscriptionCommand=new AddSubscriptionCommand(categoryService);
     private final AddTopUpCommand addTopUpCommand=new AddTopUpCommand(topUpService);
-    private final PrintRenewDetailsCommand printRenewDetailsCommand=new PrintRenewDetailsCommand(topUpService);
+    private final PrintRenewDetailsCommand printRenewDetailsCommand=new PrintRenewDetailsCommand(renewDetailsService);
 
     private final CommandInvoker command=new CommandInvoker();
 

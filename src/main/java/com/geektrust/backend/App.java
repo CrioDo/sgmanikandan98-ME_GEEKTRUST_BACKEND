@@ -12,8 +12,7 @@ public class App {
 	public static void main(String[] args) {
 			
 		List<String> commandLineArgs=new LinkedList<>(Arrays.asList(args));
-	//	System.out.println(commandLineArgs);
-           run(commandLineArgs);
+        run(commandLineArgs);
 
 	}
 

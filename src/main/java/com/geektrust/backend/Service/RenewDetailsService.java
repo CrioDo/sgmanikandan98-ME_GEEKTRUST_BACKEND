@@ -7,6 +7,7 @@ import com.geektrust.backend.Repository.ISubscriptionRepository;
 import com.geektrust.backend.Repository.ITopupRepository;
 import com.geektrust.backend.Utility.TopUpAmountCalculator;
 import com.geektrust.backend.Utility.categoryPlanAmountCalculator;
+import com.geektrust.backend.Utility.constant;
 import com.geektrust.backend.entities.Category;
 import com.geektrust.backend.entities.Topup;
 
@@ -25,7 +26,7 @@ public class RenewDetailsService implements IRenewDetailsService{
 
 
     @Override
-    public long printdetails() {
+    public long renewalAmount() {
 
         if(!subrepo.isSubscriptionAvailable()){
             throw new SubscriptionNotFoundException("SUBSCRIPTIONS_NOT_FOUND");
@@ -33,32 +34,19 @@ public class RenewDetailsService implements IRenewDetailsService{
         if(!catrepo.isSubscriptionAvailable()){
             throw new SubscriptionNotFoundException("SUBSCRIPTIONS_NOT_FOUND");
         }
-        List<Topup> topup=topuprepo.findAll();
-        List<Category> category=catrepo.findAll();
 
-        long ans=planAmount(category)+topupAmount(topup);
-        return ans;
-    }
-
-    public long planAmount(List<Category> category){
-        long ans=0;
-        if(category!=null){
-            for(Category obj: category){
-            ans+=categoryPlanAmountCalculator.planAmount(obj.getPlanCategory(),obj.getPlanName());
-            }
+        List<Topup> tp=topuprepo.findAll();
+        List<Category> ct=catrepo.findAll();
+        long amount=0;
+        for(Category a:ct){
+             amount+=categoryPlanAmountCalculator.calculateTotalAmount(a);
         }
-        return ans; 
-    }
-
-    public long topupAmount(List<Topup> topup){
-        long ans=0;
-
-        if(topup!=null){
-            for(Topup obj:topup){
-                ans+=(obj.getMonths())*(TopUpAmountCalculator.calculateAmount(obj.getDevice()));
-            }  
+        for(Topup a:tp){
+            amount+=TopUpAmountCalculator.calculateTotalAmount(a);
         }
-        return ans;
+        return amount;       
     }
+
+   
     
 }

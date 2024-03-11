@@ -1,9 +1,11 @@
 package com.geektrust.backend.Repository;
 
 import com.geektrust.backend.Utility.DateValidator;
+import com.geektrust.backend.Utility.constant;
 import com.geektrust.backend.entities.Category;
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -32,30 +34,20 @@ public class CategoryRepository  implements ICategoryRepository{
 
 
     @Override
-    public String renewalDate(LocalDate date, String subscriptionPlan){
+    public LocalDate renewalDate(LocalDate date, String subscriptionPlan){
 
         LocalDate renewalDate=null;
-        if(subscriptionPlan.equalsIgnoreCase("PREMIUM")){
 
-            if(date.getMonth()==Month.FEBRUARY){
-            renewalDate=date.plusDays(79);
-                }
-            else{
-            renewalDate=date.plusDays(80);
-                }
+        if(subscriptionPlan.equalsIgnoreCase("PREMIUM")){
+              renewalDate=date.plusMonths(constant.PREMIUM_MONTH).minusDays(constant.NO_OF_BEFORE_NOTIFIED);
+            
         }
         else{
-
-            if(date.getMonth()==Month.FEBRUARY){
-                renewalDate=date.plusDays(18);
-               }
-            else{
-            renewalDate=date.plusDays(20);
-                }
+            renewalDate=date.plusMonths(constant.PERSONAL_MONTH).minusDays(constant.NO_OF_BEFORE_NOTIFIED);
         }
         
-       return DateValidator.formatDate(renewalDate.toString());
-    }
+       return renewalDate;
+    } 
 
     @Override
     public boolean isSubscribed(String subscriptionCategory) {

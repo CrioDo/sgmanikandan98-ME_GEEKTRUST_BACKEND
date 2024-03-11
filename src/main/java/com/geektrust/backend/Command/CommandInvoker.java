@@ -9,8 +9,10 @@ import com.geektrust.backend.Repository.SubscriptionRepository;
 import com.geektrust.backend.Repository.TopupRepository;
 import com.geektrust.backend.Service.CategoryService;
 import com.geektrust.backend.Service.ICategoryService;
+import com.geektrust.backend.Service.IRenewDetailsService;
 import com.geektrust.backend.Service.ISubscriptionService;
 import com.geektrust.backend.Service.ITopUpService;
+import com.geektrust.backend.Service.RenewDetailsService;
 import com.geektrust.backend.Service.SubscriptionService;
 import com.geektrust.backend.Service.TopUpService;
 
@@ -35,7 +37,7 @@ public class CommandInvoker {
 
     }
 
-  /*  public static void main(String[] args) {
+   public static void main(String[] args) {
 
         CommandInvoker obj=new CommandInvoker();
 
@@ -46,6 +48,7 @@ public class CommandInvoker {
         ITopUpService service=new TopUpService(catrepo, subrepo, toprepo);
         ISubscriptionService subservice=new SubscriptionService(subrepo);
         ICategoryService catservice=new CategoryService(catrepo, subrepo);
+        IRenewDetailsService renewService=new RenewDetailsService(subrepo, catrepo, toprepo);
 
         ICommand command=new StartSubscriptionCommand(subservice);
         obj.register("START_SUBSCRIPTION", command);
@@ -72,10 +75,10 @@ public class CommandInvoker {
         List<String> token2=Arrays.asList("ADD_TOPUP","FOUR_DEVICE","3");
         obj.executeCommand("ADD_TOPUP",token2);
 
-        command=new PrintRenewDetailsCommand(service);
+        command=new PrintRenewDetailsCommand(renewService);
         obj.register("PRINT_RENEWAL_DETAILS", command);
         List<String> token3=Arrays.asList("PRINT_RENEWAL_DETAILS");
         obj.executeCommand("PRINT_RENEWAL_DETAILS",token3);
-     }*/ 
+     }
     
 }

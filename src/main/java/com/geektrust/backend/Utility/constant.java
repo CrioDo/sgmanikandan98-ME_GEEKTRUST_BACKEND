@@ -17,5 +17,19 @@ public class constant {
     public static final Integer TEN_DEVICE=10;
     public static final String DATE_PATTERN="dd-MM-yyyy";
     public static final String INPUT_DATE_PATTERN="yyyy-MM-dd";
+    public static final Integer TOKEN_ZERO=0;
+    public static final Integer TOKEN_ONE=1;
+    public static final Integer TOKEN_TWO=2;
+    public static final Integer TOKEN_THREE=3;
+    public static final Integer TOKEN_SIZE_ONE=1;
+    public static final Integer TOKEN_SIZE_TWO=2;
+    public static final Integer TOKEN_SIZE_THREE=3;
+    public static final Integer ZERO_DEVICE=0;
+    public static final Integer CONSTANT_ZERO=0;
+    public static final Integer NO_OF_BEFORE_NOTIFIED=10;
+    public static final Integer PREMIUM_MONTH=3;
+    public static final Integer PERSONAL_MONTH=1;
+    
+
   
 }

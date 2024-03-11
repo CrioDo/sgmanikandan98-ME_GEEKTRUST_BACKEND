@@ -45,7 +45,7 @@ public class categoryPlanAmountCalculator {
 
 
     public static long calculateTotalAmount(Category cat){
-        long ans=0;
+        long ans=constant.CONSTANT_ZERO;
         if(cat!=null){
             ans+=planAmount(cat.getPlanCategory(), cat.getPlanName());
         }
