@@ -13,14 +13,10 @@ public class CategoryService implements ICategoryService {
     private final ICategoryRepository catrepo;
     private final ISubscriptionRepository subrepo;
     
-    
-
     public CategoryService(ICategoryRepository catrepo, ISubscriptionRepository subrepo) {
         this.catrepo = catrepo;
         this.subrepo = subrepo;
     }
-
-
 
     @Override
     public Category subscribe(String subscriptionCategory, String SubcriptionPlan) {

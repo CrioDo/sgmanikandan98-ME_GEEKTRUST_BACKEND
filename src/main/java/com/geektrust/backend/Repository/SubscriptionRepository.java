@@ -2,7 +2,6 @@ package com.geektrust.backend.Repository;
 
 import java.time.LocalDate;
 import java.util.*;
-import com.geektrust.backend.Utility.constant;
 import com.geektrust.backend.entities.Subscription;
 
 
@@ -11,27 +10,18 @@ public class SubscriptionRepository implements ISubscriptionRepository{
 
     @Override
     public void startSubscription(LocalDate date) {
-        if(date!=null){
          Subscription obj=new Subscription(date);
           subsMap.put(date.toString(),obj);   
-        }
     }
     
     @Override
     public boolean isSubscriptionAvailable() {
-        if(subsMap.size()==constant.CONSTANT_ZERO){
-        return false;
-        }
-        return true;
+        return !subsMap.isEmpty();
     }
 
     @Override
-    public LocalDate startDate() {
-       if(!subsMap.isEmpty()){
-        return subsMap.values().stream().findAny().get().getStartDate();
-       }
-      return null;
-        
+    public LocalDate startDate() { 
+        return subsMap.values().stream().findAny().get().getStartDate(); 
     }
 
    

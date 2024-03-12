@@ -1,11 +1,8 @@
 package com.geektrust.backend.Repository;
 
-import com.geektrust.backend.Utility.DateValidator;
 import com.geektrust.backend.Utility.constant;
 import com.geektrust.backend.entities.Category;
 import java.time.LocalDate;
-import java.time.Month;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -17,13 +14,10 @@ public class CategoryRepository  implements ICategoryRepository{
     @Override
     public Category save(String subscriptionCategory,String SubscriptionPlan) {
        
-       if(subscriptionCategory!=null && SubscriptionPlan!=null){
         Category obj=new Category(subscriptionCategory, SubscriptionPlan);
         catsMap.put(subscriptionCategory, obj);
         return obj;
-       }
-       
-        return null;
+
     }
 
     @Override
@@ -57,10 +51,7 @@ public class CategoryRepository  implements ICategoryRepository{
 
     @Override
     public boolean isSubscriptionAvailable() {
-        if(catsMap.size()>constant.CONSTANT_ZERO){
-            return true;
-        }
-        return false;
+        return  !catsMap.isEmpty();
     }
 
     @Override
