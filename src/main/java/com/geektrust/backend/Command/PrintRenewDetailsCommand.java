@@ -22,9 +22,12 @@ public class PrintRenewDetailsCommand implements ICommand{
                 System.out.println("RENEWAL_AMOUNT "+ans);
             }
         }
-        catch(SubscriptionNotFoundException e){
-            System.out.println(e.getMessage());
+        catch(SubscriptionNotFoundException m){
+            System.out.println(m.getMessage());
         } 
+        catch(Exception w){
+            System.out.println(w.toString());
+        }
     }
     
 }

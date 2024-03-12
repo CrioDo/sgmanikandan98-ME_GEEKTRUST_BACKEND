@@ -32,11 +32,14 @@ public class AddSubscriptionCommand implements ICommand{
             
             System.out.println("RENEWAL_REMINDER "+ obj.getPlanCategory()+" "+DateTimeFormatter.ofPattern(constant.DATE_PATTERN).format(obj.getRenewalDate()));
         }
-        catch(SubscriptionNotFoundException e){
-            System.out.println(e.getMessage());
+        catch(SubscriptionNotFoundException u){
+            System.out.println(u.getMessage());
         }
-        catch(DuplicateCategoryException f){
-            System.out.println(f.getMessage());
+        catch(DuplicateCategoryException l){
+            System.out.println(l.getMessage());
+        }
+        catch(Exception n){
+            System.out.println(n.toString());
         }
         
     }

@@ -27,11 +27,14 @@ public class AddTopUpCommand implements ICommand{
             throw new NosuchCommandException("INVALID_COMMAND");
         }
     }
-    catch(DuplicateTopUpException e){
-        System.out.println(e.getMessage());
+    catch(DuplicateTopUpException s){
+        System.out.println(s.getMessage());
     }
-    catch(SubscriptionNotFoundException e){
-        System.out.println(e.getMessage());
+    catch(SubscriptionNotFoundException d){
+        System.out.println(d.getMessage());
+    }
+    catch(Exception x){
+        System.out.println(x.toString());
     }
    
     }

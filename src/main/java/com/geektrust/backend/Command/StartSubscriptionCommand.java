@@ -29,6 +29,9 @@ public class StartSubscriptionCommand implements ICommand{
         catch(InvalidDateException f){
             System.out.println(f.getMessage());
         }
+        catch(Exception g){
+            System.out.println(g.toString());
+        }
        
         
     }

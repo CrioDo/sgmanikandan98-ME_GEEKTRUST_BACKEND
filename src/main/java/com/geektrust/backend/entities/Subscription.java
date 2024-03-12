@@ -16,7 +16,4 @@ public class Subscription {
     public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
-
-    
-  
 }
