@@ -16,7 +16,7 @@ public class StartSubscriptionCommand implements ICommand{
         this.service = service;
     }
 
-   //input[START_SUBSCRIPTION 20-02-2022]
+  
 
     @Override
     public void execute(List<String> token) {

@@ -17,7 +17,7 @@ public class AddSubscriptionCommand implements ICommand{
         this.service = service;
     }
 
-    //input[ADD_SUBSCRIPTION MUSIC  PERSONAL]
+   
     @Override
     public void execute(List<String> token) {
 

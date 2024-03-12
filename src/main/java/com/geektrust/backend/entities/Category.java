@@ -4,17 +4,15 @@ import java.time.LocalDate;
 
 public class Category {
 
-    private String planCategory;
-    private String planName;
-    private LocalDate renewalDate;
+    protected String planCategory;
+    protected String planName;
+    protected LocalDate renewalDate;
     
     public Category(String planCategory, String planName, LocalDate renewalDate) {
         this.planCategory = planCategory;
         this.planName = planName;
         this.renewalDate = renewalDate;
     }
-
-    
 
     public Category(String planCategory, String planName) {
         this.planCategory = planCategory;

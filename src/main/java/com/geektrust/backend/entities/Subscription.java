@@ -3,7 +3,7 @@ package com.geektrust.backend.entities;
 import java.time.LocalDate;
 public class Subscription {
 
-    private LocalDate startDate;
+    protected LocalDate startDate;
 
     public Subscription(LocalDate startDate) {
         this.startDate = startDate;

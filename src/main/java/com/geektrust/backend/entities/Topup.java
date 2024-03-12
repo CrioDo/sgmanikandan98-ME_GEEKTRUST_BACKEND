@@ -2,29 +2,35 @@ package com.geektrust.backend.entities;
 
 public class Topup {
 
-    private int device;
-    private int months;
+   protected Integer device;
+   protected Integer months;
 
-    public Topup(int device, int months) {
-        this.device = device;
-        this.months = months;
-    }
+public Topup(Integer device, Integer months) {
+    this.device = device;
+    this.months = months;
+}
 
-    public int getDevice() {
-        return device;
-    }
+public Integer getDevice() {
+    return device;
+}
 
-    public void setDevice(int device) {
-        this.device = device;
-    }
+public void setDevice(Integer device) {
+    this.device = device;
+}
 
-    public int getMonths() {
-        return months;
-    }
+public Integer getMonths() {
+    return months;
+}
 
-    public void setMonths(int months) {
-        this.months = months;
-    }
+public void setMonths(Integer months) {
+    this.months = months;
+}
+
+
+
+   
+
+    
 
    
 

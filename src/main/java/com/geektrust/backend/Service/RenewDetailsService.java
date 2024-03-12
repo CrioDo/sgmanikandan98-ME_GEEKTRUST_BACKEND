@@ -7,7 +7,6 @@ import com.geektrust.backend.Repository.ISubscriptionRepository;
 import com.geektrust.backend.Repository.ITopupRepository;
 import com.geektrust.backend.Utility.TopUpAmountCalculator;
 import com.geektrust.backend.Utility.categoryPlanAmountCalculator;
-import com.geektrust.backend.Utility.constant;
 import com.geektrust.backend.entities.Category;
 import com.geektrust.backend.entities.Topup;
 
