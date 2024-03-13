@@ -1,6 +1,4 @@
 package com.geektrust.backend.Command;
-
-
 import java.util.*;
 import com.geektrust.backend.Exception.InvalidDateException;
 import com.geektrust.backend.Exception.NosuchCommandException;
@@ -17,7 +15,6 @@ public class StartSubscriptionCommand implements ICommand{
     }
 
   
-
     @Override
     public void execute(List<String> token) {
         try{

@@ -12,12 +12,11 @@ public class PrintRenewDetailsCommand implements ICommand{
     this.service = service;
 }
 
- 
     @Override
     public void execute(List<String> token) {
         try{    
-                long ans=service.renewalAmount();
-                System.out.println("RENEWAL_AMOUNT "+ans);
+            long ans=service.renewalAmount();
+            System.out.println("RENEWAL_AMOUNT "+ans);
         }
         catch(SubscriptionNotFoundException m){
             System.out.println(m.getMessage());

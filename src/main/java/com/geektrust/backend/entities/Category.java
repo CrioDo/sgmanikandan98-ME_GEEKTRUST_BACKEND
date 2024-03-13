@@ -4,9 +4,9 @@ import java.time.LocalDate;
 
 public class Category {
 
-    protected String planCategory;
-    protected String planName;
-    protected LocalDate renewalDate;
+    private String planCategory;
+    private String planName;
+    private LocalDate renewalDate;
     
    
 

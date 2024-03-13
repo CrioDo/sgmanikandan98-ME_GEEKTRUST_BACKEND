@@ -2,8 +2,8 @@ package com.geektrust.backend.entities;
 
 public class Topup {
 
-   protected Integer device;
-   protected Integer months;
+   private Integer device;
+   private Integer months;
 
 public Topup(Integer device, Integer months) {
     this.device = device;

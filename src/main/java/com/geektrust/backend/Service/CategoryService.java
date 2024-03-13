@@ -21,11 +21,6 @@ public class CategoryService implements ICategoryService {
     @Override
     public Category subscribe(String subscriptionCategory, String SubcriptionPlan) {
 
-        if(subscriptionCategory.isEmpty() || SubcriptionPlan==null || SubcriptionPlan.isEmpty()
-        || SubcriptionPlan==null){
-            throw new InvalidInputException("INVALID_INPUT");  
-        }
-
         if(!subrepo.isSubscriptionAvailable()){
             throw new SubscriptionNotFoundException("ADD_SUBSCRIPTION_FAILED INVALID_DATE");
         }

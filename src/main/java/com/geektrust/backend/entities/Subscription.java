@@ -1,12 +1,15 @@
 package com.geektrust.backend.entities;
 
 import java.time.LocalDate;
+
 public class Subscription {
 
-    protected LocalDate startDate;
+    private LocalDate startDate;
+    private Status status=Status.NOT_STARTED;
 
-    public Subscription(LocalDate startDate) {
+    public Subscription(LocalDate startDate, Status status) {
         this.startDate = startDate;
+        this.status = status;
     }
 
     public LocalDate getStartDate() {
@@ -16,4 +19,15 @@ public class Subscription {
     public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+
+
 }

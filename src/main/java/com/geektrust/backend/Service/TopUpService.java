@@ -26,10 +26,6 @@ public class TopUpService implements ITopUpService {
     @Override
     public void addTopUp(String noOfDevice, int noOfMonths) {
 
-        if(noOfDevice==null || noOfMonths<constant.CONSTANT_ZERO ){
-            throw new InvalidInputException("INVALID_DATA");
-        }
-
         if(!subrepo.isSubscriptionAvailable()){
            throw new SubscriptionNotFoundException("ADD_TOPUP_FAILED INVALID_DATE");
         }

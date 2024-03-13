@@ -2,6 +2,7 @@ package com.geektrust.backend.Repository;
 
 import java.time.LocalDate;
 import java.util.*;
+import com.geektrust.backend.entities.Status;
 import com.geektrust.backend.entities.Subscription;
 
 
@@ -10,8 +11,8 @@ public class SubscriptionRepository implements ISubscriptionRepository{
 
     @Override
     public void startSubscription(LocalDate date) {
-         Subscription obj=new Subscription(date);
-          subsMap.put(date.toString(),obj);   
+         Subscription obj=new Subscription(date,Status.STARTED);
+          subsMap.put(Status.STARTED.toString(),obj);   
     }
     
     @Override
