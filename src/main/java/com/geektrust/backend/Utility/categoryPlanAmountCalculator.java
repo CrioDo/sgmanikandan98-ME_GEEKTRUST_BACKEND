@@ -17,7 +17,7 @@ public class categoryPlanAmountCalculator {
             }
         }
 
-        else if(category.equalsIgnoreCase("video")){
+         if(category.equalsIgnoreCase("video")){
             switch(plan){
                 case "FREE":
                     return constant.VIDEO_FREE;
@@ -28,7 +28,7 @@ public class categoryPlanAmountCalculator {
             }
         }
 
-        else if(category.equalsIgnoreCase("podcast")){
+        if(category.equalsIgnoreCase("podcast")){
             switch(plan){
                 case "FREE":
                     return constant.PODCAST_FREE;
@@ -44,6 +44,7 @@ public class categoryPlanAmountCalculator {
     }
 
 
+    
     public static long calculateTotalAmount(Category cat){
         long ans=constant.CONSTANT_ZERO;
         if(cat!=null){

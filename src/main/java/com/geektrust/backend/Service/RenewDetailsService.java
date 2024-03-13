@@ -7,6 +7,7 @@ import com.geektrust.backend.Repository.ISubscriptionRepository;
 import com.geektrust.backend.Repository.ITopupRepository;
 import com.geektrust.backend.Utility.TopUpAmountCalculator;
 import com.geektrust.backend.Utility.categoryPlanAmountCalculator;
+import com.geektrust.backend.Utility.constant;
 import com.geektrust.backend.entities.Category;
 import com.geektrust.backend.entities.Topup;
 
@@ -36,7 +37,7 @@ public class RenewDetailsService implements IRenewDetailsService{
 
         List<Topup> tp=topuprepo.findAll();
         List<Category> ct=catrepo.findAll();
-        long amount=0;
+        long amount=constant.CONSTANT_ZERO;
         for(Category a:ct){
              amount+=categoryPlanAmountCalculator.calculateTotalAmount(a);
         }

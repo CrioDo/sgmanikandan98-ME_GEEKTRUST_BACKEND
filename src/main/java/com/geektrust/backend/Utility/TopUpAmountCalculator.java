@@ -19,14 +19,15 @@ public class TopUpAmountCalculator {
 
     public static long calculateTotalAmount(Topup topup){
         long ans=constant.CONSTANT_ZERO;
-        if(topup!=null){
+       
            if(topup.getDevice()<=constant.FOUR_DEVICE){
             ans+=constant.UPTO_FOUR_DEVICE*topup.getMonths();
            }
+           
            else{
             ans+=constant.UPTO_TEN_DEVICE*topup.getMonths();
            }
-        }
+        
         return ans;
     }
     

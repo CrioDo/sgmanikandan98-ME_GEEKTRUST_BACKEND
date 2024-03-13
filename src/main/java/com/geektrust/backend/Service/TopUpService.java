@@ -42,7 +42,7 @@ public class TopUpService implements ITopUpService {
             throw new DuplicateTopUpException("ADD_TOPUP_FAILED DUPLICATE_TOPUP");
         }
         int deviceNumber=DeviceCalculator.findDeviceCount(noOfDevice);
-        if(deviceNumber>0 && deviceNumber<=constant.UPTO_TEN_DEVICE){
+        if(deviceNumber>constant.CONSTANT_ZERO && deviceNumber<=constant.UPTO_TEN_DEVICE){
             toprepo.addTopUp(deviceNumber, noOfMonths);
         }
         else{
