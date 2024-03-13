@@ -26,7 +26,6 @@ public class App {
 			String line=reader.readLine();
 
 			while(line!=null){
-
 				List<String>tokens=Arrays.asList(line.split(" "));
 				commadnInvoker.executeCommand(tokens.get(constant.TOKEN_ZERO), tokens);
 				line=reader.readLine();

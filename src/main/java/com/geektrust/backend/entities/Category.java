@@ -8,6 +8,8 @@ public class Category {
     protected String planName;
     protected LocalDate renewalDate;
     
+   
+
     public Category(String planCategory, String planName, LocalDate renewalDate) {
         this.planCategory = planCategory;
         this.planName = planName;
@@ -44,8 +46,6 @@ public class Category {
     public void setRenewalDate(LocalDate renewalDate) {
         this.renewalDate = renewalDate;
     }
-
-    
 
   
 }

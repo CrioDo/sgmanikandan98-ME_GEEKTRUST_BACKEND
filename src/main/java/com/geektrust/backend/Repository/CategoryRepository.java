@@ -58,8 +58,6 @@ public class CategoryRepository  implements ICategoryRepository{
     public List<Category> findAll() {
        return catsMap.values().stream().collect(Collectors.toList());
     }
-
-
-    
+      
     
 }
