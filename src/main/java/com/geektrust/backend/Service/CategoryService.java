@@ -1,12 +1,9 @@
 package com.geektrust.backend.Service;
 
-import java.time.LocalDate;
 import com.geektrust.backend.Exception.DuplicateCategoryException;
-import com.geektrust.backend.Exception.InvalidInputException;
 import com.geektrust.backend.Exception.SubscriptionNotFoundException;
 import com.geektrust.backend.Repository.ICategoryRepository;
 import com.geektrust.backend.Repository.ISubscriptionRepository;
-import com.geektrust.backend.entities.Category;
 
 public class CategoryService implements ICategoryService {
 

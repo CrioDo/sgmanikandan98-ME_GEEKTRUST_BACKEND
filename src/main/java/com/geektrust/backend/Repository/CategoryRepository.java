@@ -1,8 +1,7 @@
 package com.geektrust.backend.Repository;
 
-import com.geektrust.backend.Utility.constant;
+
 import com.geektrust.backend.entities.Category;
-import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -19,22 +18,6 @@ public class CategoryRepository  implements ICategoryRepository{
         return obj;
 
     }
-
-    
-
-    @Override
-    public boolean findByCategory(String Category) {
-       
-        return true;
-    }
-
-
-
-
-
-     
-
-
 
     @Override
     public boolean isSubscribed(String subscriptionCategory) {
