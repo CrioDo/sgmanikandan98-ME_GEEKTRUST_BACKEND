@@ -3,6 +3,8 @@ package com.geektrust.backend.Command;
 import java.util.List;
 import com.geektrust.backend.Exception.SubscriptionNotFoundException;
 import com.geektrust.backend.Service.IRenewDetailsService;
+import com.geektrust.backend.dto.RenewalAmount;
+import com.geektrust.backend.dto.RenewalReminder;
 
 
 public class PrintRenewDetailsCommand implements ICommand{
@@ -15,8 +17,10 @@ public class PrintRenewDetailsCommand implements ICommand{
     @Override
     public void execute(List<String> token) {
         try{    
-            long ans=service.renewalAmount();
-            System.out.println("RENEWAL_AMOUNT "+ans);
+            RenewalAmount amount=service.renewalAmount();
+            List<RenewalReminder> ls=service.renewalReminder();
+            ls.forEach(e->System.out.println(e.toString()));
+            System.out.println(amount.toString());
         }
         catch(SubscriptionNotFoundException m){
             System.out.println(m.getMessage());

@@ -19,8 +19,7 @@ public class CategoryService implements ICategoryService {
     }
 
     @Override
-    public Category subscribe(String subscriptionCategory, String SubcriptionPlan) {
-
+    public void subscribe(String subscriptionCategory, String SubcriptionPlan) {
         if(!subrepo.isSubscriptionAvailable()){
             throw new SubscriptionNotFoundException("ADD_SUBSCRIPTION_FAILED INVALID_DATE");
         }
@@ -28,11 +27,8 @@ public class CategoryService implements ICategoryService {
         if(catrepo.isSubscribed(subscriptionCategory)){
             throw new DuplicateCategoryException("ADD_SUBSCRIPTION_FAILED DUPLICATE_CATEGORY");
         }
-      
-        Category obj=catrepo.save(subscriptionCategory, SubcriptionPlan);
-        LocalDate date=subrepo.startDate();
-        LocalDate renewalDate=catrepo.renewalDate(date, SubcriptionPlan);
-        return new Category(obj.getPlanCategory(), obj.getPlanName(),renewalDate);
+       catrepo.save(subscriptionCategory, SubcriptionPlan);
+        
     }
 
    

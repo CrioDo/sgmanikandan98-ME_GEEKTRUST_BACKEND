@@ -20,6 +20,8 @@ public class CategoryRepository  implements ICategoryRepository{
 
     }
 
+    
+
     @Override
     public boolean findByCategory(String Category) {
        
@@ -27,21 +29,12 @@ public class CategoryRepository  implements ICategoryRepository{
     }
 
 
-    @Override
-    public LocalDate renewalDate(LocalDate date, String subscriptionPlan){
 
-        LocalDate renewalDate=null;
 
-        if(subscriptionPlan.equalsIgnoreCase("PREMIUM")){
-              renewalDate=date.plusMonths(constant.PREMIUM_MONTH).minusDays(constant.NO_OF_BEFORE_NOTIFIED);
-            
-        }
-        else{
-            renewalDate=date.plusMonths(constant.PERSONAL_MONTH).minusDays(constant.NO_OF_BEFORE_NOTIFIED);
-        }
-        
-       return renewalDate;
-    } 
+
+     
+
+
 
     @Override
     public boolean isSubscribed(String subscriptionCategory) {
@@ -49,10 +42,12 @@ public class CategoryRepository  implements ICategoryRepository{
         return obj.isPresent();
     }
 
+
     @Override
     public boolean isSubscriptionAvailable() {
         return  !catsMap.isEmpty();
     }
+
 
     @Override
     public List<Category> findAll() {
